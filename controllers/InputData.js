@@ -19,8 +19,17 @@ const saveInputData = async (req, res) => {
         }
 
         const { title, description, data } = req.body
-        const inputData = { title, description, data }
-        user.inputDatas.push(inputData)
+        const newInputData = { title, description, data }
+        
+        const isAlreadyPresent = user.inputDatas.some(inputData => {
+            if(!inputData) return false
+            return JSON.stringify(inputData) === JSON.stringify(newInputData)
+        });
+
+        if(isAlreadyPresent){
+            return res.status(200).send({ msg: 'Input data already exists!' })
+        }
+        user.inputDatas.push(newInputData)
         
         await user.save()
         res.status(200).send({ msg: 'Data Saved Successfully!' })
