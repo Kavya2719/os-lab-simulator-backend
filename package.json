@@ -1,0 +1,27 @@
+{
+  "name": "os-lab-simulator-backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kavya2719/os-lab-simulator-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kavya2719/os-lab-simulator-backend/issues"
+  },
+  "homepage": "https://github.com/Kavya2719/os-lab-simulator-backend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.3"
+  }
+}
