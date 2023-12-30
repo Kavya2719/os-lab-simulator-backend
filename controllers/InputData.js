@@ -1,6 +1,9 @@
 import User from '../models/User.js';
 import { fetchByUsername } from './User.js';
 import mongoose from 'mongoose';
+import connectDatabase from '../connectDatabase.js'
+
+connectDatabase()
 
 
 const saveInputData = async (req, res) => {
