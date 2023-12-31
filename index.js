@@ -2,10 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
 import InputData from './routes/InputData.js';
-import connectDatabase from './connectDatabase.js';
 
 config();
-connectDatabase();
 
 const port = process.env.API_PORT || 8000;
 

@@ -1,16 +1,11 @@
 import User from '../models/User.js';
 import { fetchByUsername } from './User.js';
-import mongoose from 'mongoose';
-// import connectDatabase from '../connectDatabase.js'
-
-// connectDatabase()
+import connectDatabase from '../connectDatabase.js'
 
 
 const saveInputData = async (req, res) => {
     try{
-        if (mongoose.connection.readyState !== 1) {
-            throw new Error('MongoDB connection is not established.');
-        }
+        await connectDatabase()
         
         const { userName } = req.params
         if(!userName) 
@@ -42,12 +37,9 @@ const saveInputData = async (req, res) => {
     }
 }
 
-
 const updateInputData = async (req, res) => {
     try{
-        if (mongoose.connection.readyState !== 1) {
-            throw new Error('MongoDB connection is not established.');
-        }
+        await connectDatabase()
         
         const { userName, index } = req.params
         if(!userName) 
@@ -74,12 +66,9 @@ const updateInputData = async (req, res) => {
     }
 }
 
-
 const deleteInputData = async (req, res) => {
     try{
-        if (mongoose.connection.readyState !== 1) {
-            throw new Error('MongoDB connection is not established.');
-        }
+        await connectDatabase()
         
         const { userName, index } = req.params
         if(!userName) 
@@ -103,12 +92,9 @@ const deleteInputData = async (req, res) => {
     }
 }
 
-
 const getAllSavedInputDatas = async (req, res) => {
     try{
-        if (mongoose.connection.readyState !== 1) {
-            throw new Error('MongoDB connection is not established.');
-        }
+        await connectDatabase()
         
         const { userName } = req.params
         if(!userName) 

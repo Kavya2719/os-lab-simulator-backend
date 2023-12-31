@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import connectDatabase from "../connectDatabase.js";
 
-const db = mongoose.connection
+const db = await connectDatabase()
 const userDB = db.useDb('Users')
 
 const UserSchema = mongoose.Schema({

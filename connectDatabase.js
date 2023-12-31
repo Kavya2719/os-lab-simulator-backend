@@ -6,14 +6,20 @@ const db_url = process.env.DB_TOKEN
 
 export default async () => {
     try {
+        if(mongoose.connection.readyState === 1){
+            return mongoose.connection;
+        }
+
         const connectionParams = {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         };
-        await mongoose.connect(db_url, connectionParams);
-        console.log("connected to database");
+        const db = await mongoose.connect(db_url, connectionParams);
+        console.log("Connected to Database!");
+
+        return db.connection;
     } catch (error) {
         console.log(error);
-        console.log("could not connect to database");
+        console.log("Error while connecting to Database!");
     }
 };
